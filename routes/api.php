@@ -30,8 +30,10 @@ Route::group([], function(){
     Route::group(['middleware'=>'auth:api'], function(){
         Route::get('logout', 'Auth\AuthController@logout');//logout
 
+        Route::post('profile-update', 'App\Http\Controllers\ProfileController@updateProfile');
         Route::group(['middleware'=>'admin'], function(){
             Route::post('send-mail', 'App\Http\Controllers\AuthController@sendMail');
         });
+
     });
 });
