@@ -17,20 +17,21 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-Route::post('register', 'App\Http\Controllers\AuthController@register');
-Route::post('login', 'App\Http\Controllers\AuthController@login');
+
 Route::group([], function(){
 
-//    Route::post('register', 'App\Http\Controllers\AuthController@register');
-//    Route::post('login', 'App\Http\Controllers\AuthController@login');
-    Route::get('unauth', 'Auth\AuthController@unAuthMessage')->name('unauth');
+    Route::post('user-register', 'App\Http\Controllers\AuthController@userRegister');
+    Route::post('code-verify', 'App\Http\Controllers\AuthController@codeVerification');
+    Route::post('register', 'App\Http\Controllers\AuthController@register');
+    Route::post('login', 'App\Http\Controllers\AuthController@login');
+
+    Route::get('unauth', 'App\Http\Controllers\AuthController@unAuthMessage')->name('unauth');
 
     Route::group(['middleware'=>'auth:api'], function(){
         Route::get('logout', 'Auth\AuthController@logout');//logout
 
         Route::group(['middleware'=>'admin'], function(){
-            //course
-//            Route::get('course', 'Course\CourseController@index');
+            Route::post('send-mail', 'App\Http\Controllers\AuthController@sendMail');
         });
     });
 });
