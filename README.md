@@ -92,7 +92,7 @@
 
 ### Some screenshots of the project postman api: As I use LEMP stack for my local server environment, I have used domain name in the url
 #### you can use localhost or ip. I have attached postman json file for the project. You can use it also. 
-	1. Registration api and it's responses
+	1. Email invitation for Signup
 
 ![Email Invitation for Signup](/screenshots/api_details/mail_invitation.png)
 
