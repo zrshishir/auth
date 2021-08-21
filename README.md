@@ -112,4 +112,4 @@
 
 ![Profile Updating](/screenshots/api_details/profile_update.png)
 
-## Thanks
+
