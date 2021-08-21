@@ -1,65 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Laravel Authentication and Profile Update
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Tech Specifications
+	- "php": "^7.4|^8.0".
+    - "laravel/framework": "^8.56".
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Features
+	1. Passport Generated Token
+		- token validation checking and responses through middleware
+	2. Database migration
+	3. Authentication
+		- Validation for registration 
+		- all possible responses
+		- Validation for login
+		- all possible responses for invalid login and signup
+	4. Profile Update
+		- User have to login into the system and then he can update his profile.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Working Procedure
+        - By default admin is created when we run the command `php artisan db:seed` and the admin email is `admin@gmail.com`
+        - Admin will log into the system with the admin email and password is `123456`.
+        - Admin will send an invitation to user with his user email. 
+        - User will submit his/her user name and password. A 6 digit code will be generated and sent to the user email. User need to submit the code to complete the registration.
+        - Now User can login with email and password and update his/her profile.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Attachment
+	- Json file of postman api collection in the root directory named `laravel authentication.postman_collection.json
 
-## Learning Laravel
+## Project setup
+	Project setup details are described below step by step: The front end project for this project is [here](https://github.com/zrshishir/product-frontend). First, follow these steps then front end [project](git@github.com:zrshishir/product-frontend) steps
+		1. Download or clone the project from [auth](git@github.com:zrshishir/auth.git). 
+		2. Go to the project's root directory and run the command `composer install` or `composer update`
+		3. After successfully composer updation set up your database credentials on .env file
+		4. Run the command `php artisan migrate`
+		5. Run the command `php artisan passport:install`
+		6. Run the command `php artisan passport:key`
+		7. Run the command `php artisan db:seed`
+		8. Run the command `php artisan storage:link`
+		9. If you need to rollback the database, just run the command `php artisan migrate:rollback`
+		10. If you are using LEMP stack then follow proper steps [here](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04) and if you are using other then run the command `php artisan serve` to get the domain name or service url that will have to be assigned in the [frontend code](git@github.com:zrshishir/product-frontend) `/src/api/product-frontend.js` ROOT_URL const.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### screenshots of project setup procedure details
+	The working procedure is described below with screenshots:
+	1. To install this project you will have composer installed. You can install this project two ways
+		- Download the zip file from the repository and extract it on your pc
 
-## Laravel Sponsors
+		- clone the project using git and the command is `git clone git@github.com:zrshishir/product-frontend.git`. 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+![git clone](/screenshots/project_config/git_clone.png)
 
-### Premium Partners
+	2. Go to the project's root directory 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+![go to root directory](/screenshots/project_config/go_to_project.png)
 
-## Contributing
+	3. run the command `composer update` or `composer install`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![composer upate](/screenshots/project_config/composer_update.png)
 
-## Code of Conduct
+	4. Database credential set up
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![db set up](/screenshots/project_config/database_config.png)
 
-## Security Vulnerabilities
+	5. smtp mail server setup
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![smtp configuration](/screenshots/project_config/smtp_config.png)
 
-## License
+    6. Run the command `php artisan migrate`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# auth
+![migration](/screenshots/project_config/migrate.png)
+
+    7. Run the command `php artisan passport:install`
+
+![passport installation](/screenshots/project_config/passport_install.png)
+
+    8. Run the command `php artisan passport:key`
+
+![passport key](/screenshots/project_config/passport_key.png)
+
+    9. Run the command to seed database `php artisan db:seed`
+
+![database seeding](/screenshots/project_config/db_seed.png)
+
+	10. Run the command `php artisan storage:link`
+
+[comment]: <> (![storage link]&#40;/screenshots/terminal_5.png&#41;)
+
+	7. Run the command `php artisan serve` and use this link on the postman url
+
+[comment]: <> (![To run the project]&#40;/screenshots/terminal_6.png&#41;)
+
+### Some screenshots of the project postman api: As I use LEMP stack for my local server environment, I have used domain name in the url
+#### you can use localhost or ip. I have attached postman json file for the project. You can use it also. 
+	1. Registration api and it's responses
+
+![Email Invitation for Signup](/screenshots/api_details/mail_invitation.png)
+
+	2. User registration with user name and password
+
+![User Registration](/screenshots/api_details/user_register.png)
+
+	3. Code verification 
+
+![code verification](/screenshots/api_details/code_verification.png)
+
+	4. Admin/User login
+
+![Login](/screenshots/api_details/login.png)
+
+	5. Profile update
+
+![Profile Updating](/screenshots/api_details/profile_update.png)
+
+## Thanks
