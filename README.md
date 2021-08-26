@@ -28,7 +28,7 @@
 	- Json file of postman api collection in the root directory named `laravel authentication.postman_collection.json
 
 ## Project setup
-	Project setup details are described below step by step: The front end project for this project is [here](https://github.com/zrshishir/product-frontend). First, follow these steps then front end [project](git@github.com:zrshishir/product-frontend) steps
+	Project setup details are described below step by step:. First, follow these steps
 		1. Download or clone the project from [auth](git@github.com:zrshishir/auth.git). 
 		2. Go to the project's root directory and run the command `composer install` or `composer update`
 		3. After successfully composer updation set up your database credentials on .env file
@@ -46,7 +46,7 @@
 	1. To install this project you will have composer installed. You can install this project two ways
 		- Download the zip file from the repository and extract it on your pc
 
-		- clone the project using git and the command is `git clone git@github.com:zrshishir/product-frontend.git`. 
+		- clone the project using git and the command is `git clone git@github.com:zrshishir/auth.git`. 
 
 ![git clone](/screenshots/project_config/git_clone.png)
 
